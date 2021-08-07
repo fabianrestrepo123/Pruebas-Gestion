@@ -1,0 +1,38 @@
+version '1.0-SNAPSHOT'
+
+repositories {
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.0")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'maven-publish'
+
+dependencies {
+    implementation('net.serenity-bdd:serenity-screenplay-webdriver:2.2.0')
+    implementation('net.serenity-bdd:serenity-screenplay:2.2.0')
+    implementation('net.serenity-bdd:serenity-cucumber5:2.2.0')
+    implementation('net.serenity-bdd:serenity-junit:2.2.0')
+    implementation('net.serenity-bdd:serenity-core:2.2.0')
+    implementation('io.cucumber:cucumber-junit:5.5.0')
+    implementation('io.cucumber:cucumber-core:5.5.0')
+    testImplementation('net.serenity-bdd:serenity-junit:2.2.0')
+    testImplementation('net.serenity-bdd:serenity-core:2.2.0')
+    testImplementation('org.slf4j:slf4j-simple:1.7.7')
+    testImplementation('junit:junit:4.12')
+}
